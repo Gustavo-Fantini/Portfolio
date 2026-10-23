@@ -25,3 +25,7 @@ O conteúdo apresenta interesses, projetos e percurso pessoal, sem foco em procu
 O conteúdo permanece visível sem JavaScript. O menu usa um botão com estado acessível e pode ser fechado com Escape. Existem estilos de foco, ligação para saltar a navegação e suporte à preferência de movimento reduzido.
 
 Não são necessários serviços externos para carregar os estilos ou executar o site. As alterações locais só aparecem no site publicado depois de serem enviadas e disponibilizadas pelo processo de publicação do repositório.
+
+## Efeitos visuais
+
+O JavaScript acrescenta entradas suaves repetidas ao regressar a uma sec??o durante o scroll, progresso de leitura e resposta ao cursor no perfil e na ilustração SiOPA. Os efeitos usam APIs nativas, sem dependências. A interação com o cursor exige rato ou dispositivo equivalente; a preferência de movimento reduzido cancela as animações. O conteúdo mantém-se visível caso o JavaScript ou as APIs de animação não estejam disponíveis.

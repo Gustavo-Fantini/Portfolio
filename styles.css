@@ -49,7 +49,7 @@ button {
   position:sticky;
   top:0;
   z-index:10;
-  background:rgba(246,245,239,.96);
+  background:var(--paper);
   border-bottom:1px solid var(--line)
 }
 .nav {
@@ -80,17 +80,28 @@ button {
   font-size:13px
 }
 .nav nav a {
+  position:relative;
   padding:8px 0
 }
-.nav nav a:hover,.nav nav a[aria-current] {
-  text-decoration:underline;
-  text-underline-offset:7px
+.nav nav a::after {
+  content:'';
+  position:absolute;
+  inset:auto 0 3px;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 220ms ease;
+  pointer-events:none
+}
+.nav nav a:hover::after,.nav nav a:focus-visible::after,.nav nav a[aria-current]::after {
+  transform:scaleX(1)
 }
 .nav-contact {
   font-weight:650
 }
 .nav-contact span {
-  margin-left:13px
+  margin-left:6px
 }
 .menu-toggle {
   display:none
@@ -186,15 +197,26 @@ h1 em:after {
   background:#2a4840
 }
 .text-link {
+  position:relative;
   font-size:13px;
   font-weight:600;
   display:inline-flex;
   align-items:center;
   gap:16px
 }
-.text-link:hover {
-  text-decoration:underline;
-  text-underline-offset:5px
+.text-link::after {
+  content:'';
+  position:absolute;
+  inset:auto 0 3px;
+  height:1px;
+  background:currentColor;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 220ms ease;
+  pointer-events:none
+}
+.text-link:hover::after,.text-link:focus-visible::after {
+  transform:scaleX(1)
 }
 .hero-note {
   font-size:11px;
@@ -865,3 +887,100 @@ h2 {
   .contact-actions { align-items: flex-start; gap: 20px; }
   .hero-note { line-height: 1.7; }
 }
+/* Motion is progressive enhancement: content is never hidden by CSS. */
+.reading-progress {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #77984e;
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+.header { transition: box-shadow 240ms ease, background-color 240ms ease; }
+.header.is-scrolled { box-shadow: 0 8px 28px #142c2909; }
+.actions, .contact-actions { gap: 16px 24px; }
+.text-link { gap: 6px; padding-block: 6px; }
+.text-link span, .profile-link span, .contact-email span {
+  display: inline-block;
+  transition: transform 250ms ease;
+}
+.text-link:hover span, .profile-link:hover span, .contact-email:hover span {
+  transform: translate(2px, -2px);
+}
+/* Static labels remain editorial, rather than resembling controls. */
+.tags { gap: 6px 0; }
+.tags span { border: 0; border-radius: 0; padding: 0; }
+.tags span + span::before { content: '/'; padding-inline: 10px; opacity: .45; }
+.award { background: transparent; padding: 0; color: #4c672f; }
+.recognition { background: transparent; padding: 0; }
+.featured-project { border-radius: 3px; }
+.profile {
+  position: relative;
+  isolation: isolate;
+  transform: perspective(1000px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) rotate(2deg);
+  transition: transform 350ms ease-out;
+}
+.profile::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--light-opacity, 0);
+  background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #cbe78524, transparent 65%);
+  transition: opacity 350ms ease;
+}
+.project-art { overflow: hidden; }
+.scan { translate: var(--scan-x, 0px) var(--scan-y, 0px); transition: translate 350ms ease-out; }
+.project-art::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: var(--light-opacity, 0);
+  background: radial-gradient(circle at var(--light-x, 50%) var(--light-y, 50%), #f6f5ef99, transparent 55%);
+  transition: opacity 350ms ease;
+}
+.contact-actions .text-link { font-size: 14px; }
+.contact-bottom > div { gap: 16px; flex-wrap: wrap; }
+.contact-email { gap: 10px; }
+@media (max-width: 760px) {
+  .profile { transform: rotate(1deg); }
+  .contact-actions { flex-direction: column; gap: 8px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile { transform: none; }
+  .scan { translate: none; }
+  .reading-progress, .profile::before, .project-art::after { display: none; }
+}
+
+/* More visible motion, including effects that do not need a mouse. */
+@media (prefers-reduced-motion: no-preference) {
+  .profile { translate: 0 var(--scroll-offset, 0px); }
+  .profile-initials > span { animation: orbit-mark 14s linear infinite; }
+  .scan-leaf { animation: leaf-breathe 5s ease-in-out infinite; }
+  .scan::after {
+    content: '';
+    position: absolute;
+    inset: 5% 0 auto;
+    height: 2px;
+    background: #698a48;
+    box-shadow: 0 0 18px #698a4877;
+    animation: scan-sweep 4s ease-in-out infinite;
+    pointer-events: none;
+  }
+}
+@keyframes orbit-mark { to { transform: rotate(360deg); } }
+@keyframes leaf-breathe {
+  0%, 100% { transform: rotate(-15deg) scale(.94); }
+  50% { transform: rotate(-5deg) scale(1.04); }
+}
+@keyframes scan-sweep {
+  0%, 100% { top: 5%; opacity: .2; }
+  50% { top: 95%; opacity: .8; }
+}
+@media (max-width: 760px) { .profile { translate: none; } }
