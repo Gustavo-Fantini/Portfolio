@@ -28,4 +28,10 @@ Não são necessários serviços externos para carregar os estilos ou executar o
 
 ## Efeitos visuais
 
-O JavaScript acrescenta entradas suaves repetidas ao regressar a uma sec??o durante o scroll, progresso de leitura e resposta ao cursor no perfil e na ilustração SiOPA. Os efeitos usam APIs nativas, sem dependências. A interação com o cursor exige rato ou dispositivo equivalente; a preferência de movimento reduzido cancela as animações. O conteúdo mantém-se visível caso o JavaScript ou as APIs de animação não estejam disponíveis.
+O JavaScript acrescenta entradas durante o scroll, progresso de leitura e resposta ao cursor no perfil e na ilustração SiOPA. O símbolo do perfil e a ilustração incluem animações contínuas em CSS. Os efeitos usam APIs nativas, sem dependências.
+
+Por predefinição, o site respeita a preferência de movimento reduzido do sistema. O controlo **Ativar efeitos / Pausar efeitos**, no cabeçalho, permite escolher o comportamento apenas para este site. A escolha fica guardada no navegador quando o armazenamento está disponível; se estiver bloqueado, o controlo continua a funcionar durante a visita.
+
+A ativação explícita tem prioridade sobre a preferência do sistema, tanto no CSS como no JavaScript. A pausa cancela as animações de entrada e repõe os efeitos do cursor. Em dispositivos de toque, não são aplicados efeitos de inclinação. O conteúdo mantém-se visível sem JavaScript.
+
+Validação no Edge: preferência reduzida inicial, ativação explícita com animações em execução, inclinação e luz com movimento do cursor, animações no scroll, persistência após recarregar, pausa e layout/menu móvel sem transbordo horizontal.
