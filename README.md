@@ -12,7 +12,8 @@ Também pode usar a extensão Live Server do VS Code para acompanhar alteraçõe
 
 - `index.html`: conteúdo, datas, projetos e links.
 - `styles.css`: identidade visual e adaptações para telemóveis.
-- `script.js`: menu móvel, indicação da secção ativa e ano do rodapé.
+- `script.js`: menu, navegação, preferência de movimento e ano do rodapé.
+- `effects.js`: cena 3D, rede interativa e efeitos ligados ao scroll.
 
 O conteúdo foi atualizado com base no currículo fornecido em outubro de 2026. A formação atual é Engenharia Informática na Universidade do Minho; o período na Ikatec termina em setembro de 2026. A conclusão da licenciatura está indicada como previsão.
 
@@ -28,10 +29,10 @@ Não são necessários serviços externos para carregar os estilos ou executar o
 
 ## Efeitos visuais
 
-O JavaScript acrescenta entradas durante o scroll, progresso de leitura e resposta ao cursor no perfil e na ilustração SiOPA. O símbolo do perfil e a ilustração incluem animações contínuas em CSS. Os efeitos usam APIs nativas, sem dependências.
+A cena do perfil tem perspetiva 3D, camadas em profundidade, resposta amortecida ao cursor e reflexo que acompanha o rato. A abertura inclui uma rede animada em canvas que reage ao cursor. O scroll controla a deslocação do perfil, a revelação dos títulos palavra a palavra, a profundidade da ilustração SiOPA, o preenchimento do percurso e as linhas das competências. As competências e o contacto também respondem ao cursor com iluminação localizada.
 
-Por predefinição, o site respeita a preferência de movimento reduzido do sistema. O controlo **Ativar efeitos / Pausar efeitos**, no cabeçalho, permite escolher o comportamento apenas para este site. A escolha fica guardada no navegador quando o armazenamento está disponível; se estiver bloqueado, o controlo continua a funcionar durante a visita.
+Os efeitos usam APIs nativas, sem dependências. Um único ciclo requestAnimationFrame coordena a interação; o desenho da rede para quando a abertura sai do ecrã ou o separador fica oculto. A versão móvel reduz a complexidade visual e desativa a inclinação 3D do perfil.
 
-A ativação explícita tem prioridade sobre a preferência do sistema, tanto no CSS como no JavaScript. A pausa cancela as animações de entrada e repõe os efeitos do cursor. Em dispositivos de toque, não são aplicados efeitos de inclinação. O conteúdo mantém-se visível sem JavaScript.
+O site respeita movimento reduzido por predefinição. O controlo Ativar efeitos / Pausar efeitos e o convite junto ao perfil permitem uma escolha explícita apenas neste site. A escolha fica guardada quando o armazenamento está disponível. Sem JavaScript, o conteúdo e os links continuam visíveis.
 
-Validação no Edge: preferência reduzida inicial, ativação explícita com animações em execução, inclinação e luz com movimento do cursor, animações no scroll, persistência após recarregar, pausa e layout/menu móvel sem transbordo horizontal.
+Validação no Edge: ativação a partir de movimento reduzido, camadas 3D e inclinação por movimento real do cursor, desenho da rede, revelação progressiva por scroll, percurso, pausa, persistência e menu móvel. Layout verificado a 390 e 320 px, sem transbordo horizontal.
