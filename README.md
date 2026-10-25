@@ -32,12 +32,12 @@ Não são necessários serviços externos para carregar os estilos ou executar o
 
 ## Experiência 3D
 
-A abertura apresenta uma escultura GF criada com geometria WebGL real: letras extrudidas e chanfradas, corpo metálico, anéis e componentes em órbita. O reflexo de estúdio é gerado por código. Não são necessários modelos, texturas ou serviços externos.
+A abertura apresenta um computador retrofuturista criado com geometria WebGL: carcaça clara, ecrã curvo com terminal verde, teclado, rato e cabos. No interior existem uma placa com circuitos, processador, módulos de memória e condensadores. As texturas do terminal, incluindo o cursor intermitente, e os reflexos de estúdio são gerados localmente por código.
 
-Arrastar com o rato ou com o dedo roda a peça. Com o canvas focado, as setas rodam a vista e Home repõe a orientação. A secção seguinte mantém a cena visível enquanto o scroll separa e volta a reunir os componentes, atravessando três capítulos.
+Arrastar com o rato ou com o dedo roda o computador. Com o canvas focado, as setas rodam a vista e Home repõe a orientação. Na secção seguinte, o scroll afasta a carcaça e o painel frontal para revelar os componentes internos. A câmara recua durante a abertura e as peças voltam a encaixar no final, atravessando três capítulos.
 
 O motor 3D é carregado localmente quando a cena se aproxima do ecrã. A segunda vista só inicializa quando necessário. A resolução é limitada em telemóveis; as vistas fora do ecrã e os separadores ocultos suspendem a renderização contínua.
 
 A preferência de movimento reduzido pausa a animação automática, preservando uma renderização 3D estática e a rotação manual. O controlo Ativar efeitos / Pausar efeitos guarda uma escolha explícita para este site. Sem WebGL2 ou JavaScript, o conteúdo continua disponível e a peça tem uma alternativa em CSS.
 
-Validação no Edge: contexto WebGL2, renderização estática com movimento reduzido, alteração da imagem por arrasto, animação automática, três capítulos de scroll, suspensão fora do ecrã e alternativa sem WebGL. Layout e interações verificados a 390 e 320 px, sem transbordo horizontal.
+Validação no Edge: renderização WebGL2, imagem alterada por arrasto, computador estático com movimento reduzido, três capítulos de scroll, abertura máxima a meio e remontagem no final, suspensão fora do ecrã e alternativa visual do computador sem WebGL. Layout verificado a 390 e 320 px, sem transbordo horizontal.

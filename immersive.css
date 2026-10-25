@@ -1,4 +1,4 @@
-/* The sculpture is a genuine WebGL scene, with a readable static fallback. */
+/* The computer is a WebGL scene with a matching static fallback. */
 .hero { grid-template-columns:1fr 1fr; gap:25px; padding-block:48px 65px; min-height:730px; }
 .hero h1 { font-size:clamp(60px,6.3vw,94px); letter-spacing:-5px; line-height:1.02; }
 .hero .intro { max-width:410px; font-size:16px; margin-top:30px; }
@@ -13,18 +13,19 @@
 .model-identity strong { font-weight:550; }
 .model-identity > span { color:var(--muted); font-size:10px; margin-top:3px; }
 .hero-object .motion-invite { margin-top:15px; align-items:flex-start; text-align:left; }
-.model-host[data-ready="true"] .model-fallback { visibility:hidden; }
-.model-fallback { position:absolute; inset:0; display:grid; place-items:center; perspective:800px; pointer-events:none; }
-.fallback-coin { display:grid; place-items:center; width:60%; aspect-ratio:1; border-radius:50%; color:#d2ed94; font:bold clamp(70px,9vw,120px) Georgia,serif; letter-spacing:-10px; border:10px solid #819282; background:radial-gradient(ellipse at 25% 10%,#617c66,#142c29 70%); transform:rotateY(-25deg) rotateX(12deg) rotate(-12deg); box-shadow:15px 12px 0 #0c1b18,30px 35px 45px #142c2930,inset 0 0 0 4px #b6c89b; }
-.fallback-ring { width:90%; aspect-ratio:1; position:absolute; border:5px solid #a9c276; border-radius:50%; transform:rotateX(60deg) rotate(-30deg); }
-.fallback-sphere { position:absolute; top:20%; right:15%; width:35px; height:35px; border-radius:50%; background:radial-gradient(circle at 30% 20%,#f7ffe9,#94ac76 40%,#142c29 85%); }
+.model-host[data-ready="true"] .model-fallback { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:28px; perspective:800px; pointer-events:none; overflow:clip; }
+.fallback-monitor { position:relative; width:65%; max-width:300px; aspect-ratio:1.2; border:16px solid #dcd9c7; border-bottom-width:32px; border-radius:16px; background:#11271a; transform:rotateY(-15deg) rotateX(4deg); box-shadow:12px 8px 0 #a5ac97,20px 25px 35px #142c2920; }
+.fallback-terminal { height:100%; padding:30px 16px; color:#c6ed9e; font:clamp(13px,2vw,24px) monospace; background:radial-gradient(ellipse at 45% 30%,#284b35,#0b1d13); border-radius:5px; }
+.fallback-terminal span { display:block; font-size:10px; opacity:.7; margin-top:30px; }
+.fallback-monitor i { position:absolute; bottom:-20px; left:4px; width:6px; height:6px; border-radius:50%; background:#96bf67; }
+.fallback-monitor::after { content:''; position:absolute; width:80%; height:14px; left:10%; bottom:-45px; border-radius:3px; background:#a5ac97; }
+.fallback-keyboard { width:70%; max-width:320px; height:65px; border:10px solid #dcd9c7; border-radius:7px; transform:rotateX(40deg) rotateY(-15deg); background:repeating-linear-gradient(0deg,transparent 0 12px,#a5ac97 12px 16px),repeating-linear-gradient(90deg,#e7e5d8 0 16px,#a5ac97 16px 20px); box-shadow:6px 7px 0 #a5ac97; }
 .lab-section { color:#f0f4e9; background:#101e1a; position:relative; }
 .lab-sticky { position:relative; padding:70px 0; overflow:clip; }
 .lab-heading .eyebrow { color:#b9d18e; }
 .lab-heading h2 { font-size:clamp(48px,5.2vw,74px); letter-spacing:-3px; line-height:1.02; }
 .lab-heading h2 em { color:#cce994; }
 .lab-model { height:450px; }
-.lab-model .fallback-coin { max-width:300px; }
 .lab-chapters { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
 .lab-chapter > span { font:10px monospace; letter-spacing:1.5px; color:#cbe785; }
 .lab-chapter h3 { font-size:30px; letter-spacing:-1px; font-weight:450; line-height:1.15; margin:20px 0 15px; }
