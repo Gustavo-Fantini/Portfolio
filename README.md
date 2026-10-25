@@ -13,7 +13,10 @@ Também pode usar a extensão Live Server do VS Code para acompanhar alteraçõe
 - `index.html`: conteúdo, datas, projetos e links.
 - `styles.css`: identidade visual e adaptações para telemóveis.
 - `script.js`: menu, navegação, preferência de movimento e ano do rodapé.
-- `effects.js`: cena 3D, rede interativa e efeitos ligados ao scroll.
+- `effects.js`: efeitos editoriais ligados ao scroll.
+- `scene3d.js`: geometria, materiais, luzes e controlo da cena WebGL.
+- `immersive.css`: abertura e narrativa visual com posicionamento fixo durante o scroll.
+- `vendor/`: motor Three.js e licença, servidos localmente.
 
 O conteúdo foi atualizado com base no currículo fornecido em outubro de 2026. A formação atual é Engenharia Informática na Universidade do Minho; o período na Ikatec termina em setembro de 2026. A conclusão da licenciatura está indicada como previsão.
 
@@ -27,12 +30,14 @@ O conteúdo permanece visível sem JavaScript. O menu usa um botão com estado a
 
 Não são necessários serviços externos para carregar os estilos ou executar o site. As alterações locais só aparecem no site publicado depois de serem enviadas e disponibilizadas pelo processo de publicação do repositório.
 
-## Efeitos visuais
+## Experiência 3D
 
-A cena do perfil tem perspetiva 3D, camadas em profundidade, resposta amortecida ao cursor e reflexo que acompanha o rato. A abertura inclui uma rede animada em canvas que reage ao cursor. O scroll controla a deslocação do perfil, a revelação dos títulos palavra a palavra, a profundidade da ilustração SiOPA, o preenchimento do percurso e as linhas das competências. As competências e o contacto também respondem ao cursor com iluminação localizada.
+A abertura apresenta uma escultura GF criada com geometria WebGL real: letras extrudidas e chanfradas, corpo metálico, anéis e componentes em órbita. O reflexo de estúdio é gerado por código. Não são necessários modelos, texturas ou serviços externos.
 
-Os efeitos usam APIs nativas, sem dependências. Um único ciclo requestAnimationFrame coordena a interação; o desenho da rede para quando a abertura sai do ecrã ou o separador fica oculto. A versão móvel reduz a complexidade visual e desativa a inclinação 3D do perfil.
+Arrastar com o rato ou com o dedo roda a peça. Com o canvas focado, as setas rodam a vista e Home repõe a orientação. A secção seguinte mantém a cena visível enquanto o scroll separa e volta a reunir os componentes, atravessando três capítulos.
 
-O site respeita movimento reduzido por predefinição. O controlo Ativar efeitos / Pausar efeitos e o convite junto ao perfil permitem uma escolha explícita apenas neste site. A escolha fica guardada quando o armazenamento está disponível. Sem JavaScript, o conteúdo e os links continuam visíveis.
+O motor 3D é carregado localmente quando a cena se aproxima do ecrã. A segunda vista só inicializa quando necessário. A resolução é limitada em telemóveis; as vistas fora do ecrã e os separadores ocultos suspendem a renderização contínua.
 
-Validação no Edge: ativação a partir de movimento reduzido, camadas 3D e inclinação por movimento real do cursor, desenho da rede, revelação progressiva por scroll, percurso, pausa, persistência e menu móvel. Layout verificado a 390 e 320 px, sem transbordo horizontal.
+A preferência de movimento reduzido pausa a animação automática, preservando uma renderização 3D estática e a rotação manual. O controlo Ativar efeitos / Pausar efeitos guarda uma escolha explícita para este site. Sem WebGL2 ou JavaScript, o conteúdo continua disponível e a peça tem uma alternativa em CSS.
+
+Validação no Edge: contexto WebGL2, renderização estática com movimento reduzido, alteração da imagem por arrasto, animação automática, três capítulos de scroll, suspensão fora do ecrã e alternativa sem WebGL. Layout e interações verificados a 390 e 320 px, sem transbordo horizontal.

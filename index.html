@@ -6,9 +6,11 @@
   <meta name="theme-color" content="#142c29">
   <meta name="description" content="Gustavo Fantini — estudante de Engenharia Informática na Universidade do Minho. Desenvolvimento, dados e suporte técnico em Braga, Portugal.">
   <title>Gustavo Fantini — Desenvolvimento & Tecnologia</title>
-  <link rel="stylesheet" href="styles.css?v=20261023-5">
-  <script src="script.js?v=20261023-5" defer></script>
-  <script src="effects.js?v=20261023-5" defer></script>
+  <link rel="stylesheet" href="styles.css?v=20261025-1">
+  <script src="script.js?v=20261025-1" defer></script>
+  <script src="effects.js?v=20261025-1" defer></script>
+  <link rel="stylesheet" href="immersive.css?v=20261025-1">
+  <script src="scene3d.js?v=20261025-1" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Saltar para o conteúdo</a>
@@ -26,27 +28,37 @@
   </header>
   <main id="main">
     <section class="hero container" id="inicio" aria-labelledby="hero-title">
-      <canvas class="hero-network" aria-hidden="true"></canvas>
       <div class="hero-copy">
-        <p class="eyebrow"><span class="status-dot"></span> BRAGA, PORTUGAL</p>
-        <h1 id="hero-title">Curiosidade para entender.<br>Vontade de <em>criar.</em></h1>
-        <p class="intro">Sou o Gustavo. Gosto de perceber como a tecnologia funciona e de dar forma às minhas ideias através da programação. Por aqui, partilho o que construo e o que vou aprendendo.</p>
-        <div class="actions"><a class="text-link" href="#projetos">Explorar projetos <span aria-hidden="true">↘</span></a></div>
-        <div class="hero-note"><span class="status-dot"></span> Ideias, projetos e boas conversas sobre tecnologia são bem-vindos.</div>
+        <p class="eyebrow"><span class="status-dot"></span> GUSTAVO FANTINI / BRAGA, PT</p>
+        <h1 id="hero-title">Curiosidade<br>em <em>movimento.</em></h1>
+        <p class="intro">Gosto de perceber como a tecnologia funciona. E, sobretudo, de descobrir o que posso criar com ela.</p>
+        <div class="actions"><a class="text-link" href="#laboratorio">Explorar o meu universo <span aria-hidden="true">↓</span></a></div>
+        <div class="hero-note">Programação, automação e ideias que ganham forma.</div>
       </div>
-      <div class="profile-scene">
-        <div class="scene-orbit" aria-hidden="true"></div>
-        <aside class="profile" aria-label="Um pouco sobre mim">
-        <span class="profile-glare" aria-hidden="true"></span>
-        <div class="profile-top"><span>PERFIL / 2026</span><span aria-hidden="true">↗</span></div>
-        <div class="profile-initials" aria-hidden="true">GF<span>✳</span></div>
-        <p class="profile-name">Gustavo Teodoro Fantini</p><p class="profile-role">Programação · Automação · Tecnologia</p>
-        <div class="profile-row"><span>A estudar</span><strong>Universidade do Minho</strong></div>
-        <div class="profile-row"><span>Base</span><strong>Braga, Portugal</strong></div>
-        <a href="https://github.com/Gustavo-Fantini" target="_blank" rel="noopener noreferrer" class="profile-link">Conhecer o meu GitHub <span aria-hidden="true">↗</span></a>
-        </aside>
-        <p class="scene-caption"><span aria-hidden="true">↔</span> Move o cursor. Explora outra perspetiva.</p>
-        <div class="motion-invite"><span>A experiência interativa está pausada neste dispositivo.</span><button type="button" data-enable-motion>Ativar experiência <span aria-hidden="true">↗</span></button></div>
+      <div class="hero-object">
+        <div class="model-host" data-scene="hero" role="group" aria-label="Escultura tridimensional das iniciais GF, com anéis orbitais e componentes tecnológicos">
+          <div class="model-fallback" aria-hidden="true"><div class="fallback-ring"></div><div class="fallback-coin">GF</div><span class="fallback-sphere"></span></div>
+        </div>
+        <div class="model-caption"><span>01 / NÚCLEO CRIATIVO</span><span class="model-gesture">Arrasta para rodar ↔</span></div>
+        <div class="model-identity"><strong>Gustavo Teodoro Fantini</strong><span>Engenharia Informática · Universidade do Minho</span></div>
+        <div class="motion-invite"><span>O movimento está pausado neste dispositivo.</span><button type="button" data-enable-motion>Ativar experiência <span aria-hidden="true">↗</span></button></div>
+      </div>
+    </section>
+    <section class="lab-section" id="laboratorio" aria-labelledby="lab-title">
+      <div class="lab-sticky">
+        <div class="container lab-heading"><p class="eyebrow">UM POUCO DO MEU UNIVERSO</p><h2 id="lab-title">Ideias ganham<br><em>dimensão.</em></h2></div>
+        <div class="model-host lab-model" data-scene="lab" role="group" aria-label="Vista interativa dos componentes da escultura GF, que se separam com o scroll">
+          <div class="model-fallback" aria-hidden="true"><div class="fallback-ring"></div><div class="fallback-coin">GF</div><span class="fallback-sphere"></span></div>
+        </div>
+        <div class="container lab-bottom">
+          <div class="lab-chapters" aria-label="Da curiosidade à partilha">
+            <article class="lab-chapter is-current"><span>01 / PERCEBER</span><h3>Tudo começa<br>com uma pergunta.</h3><p>Entender o que está por dentro. Encontrar ligações. Descobrir outra possibilidade.</p></article>
+            <article class="lab-chapter"><span>02 / EXPERIMENTAR</span><h3>Desmontar.<br>Testar. Construir.</h3><p>Levar ideias para o código, explorar automações e aprender com cada tentativa.</p></article>
+            <article class="lab-chapter"><span>03 / PARTILHAR</span><h3>O próximo passo<br>pode ser uma conversa.</h3><p>Tecnologia faz mais sentido quando aproxima pessoas e abre espaço para criar em conjunto.</p></article>
+          </div>
+          <div class="lab-index" aria-hidden="true"><span>01</span><div><i></i></div><span>03</span></div>
+          <p class="lab-scroll">CONTINUA A EXPLORAR ↓</p>
+        </div>
       </div>
     </section>
     <div class="focus-strip"><div class="container"><span>SOFTWARE COM PROPÓSITO</span><span>Python & APIs</span><span>Machine Learning</span><span>Resolução de problemas</span></div></div>
